@@ -1,148 +1,107 @@
-/* ===== RESET =====*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Galaxy Background */
 body {
-    background: linear-gradient(130deg, #0a0f2c, #111538, #090d20);
-    background-size: 300% 300%;
-    animation: spaceMove 18s infinite linear;
-    font-family: Poppins, sans-serif;
-    color: #fff;
-    padding: 20px;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at 30% 20%, #1a003d, #000);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-/* Background bergerak */
-@keyframes spaceMove {
-    0% { background-position: 0 0; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0 0; }
-}
-
-/* PLANET */
-.planet {
-    position: fixed;
-    border-radius: 50%;
-    opacity: 0.35;
-    filter: blur(2px);
-    animation: planetRotate 25s linear infinite;
-}
-
-.planet-1 {
-    width: 240px;
-    height: 240px;
-    background: #6f47ff;
-    top: -60px;
-    left: -60px;
-}
-
-.planet-2 {
-    width: 160px;
-    height: 160px;
-    background: #ff47c6;
-    bottom: -40px;
-    right: -40px;
-}
-
-@keyframes planetRotate {
-    0% { transform: rotate(0deg) scale(1); }
-    50% { transform: rotate(180deg) scale(1.1); }
-    100% { transform: rotate(360deg) scale(1); }
-}
-
-/* ROCKET */
-.rocket {
-    width: 70px;
-    position: fixed;
-    top: 60%;
-    left: -80px;
-    animation: rocketFly 6s infinite ease-in-out;
-}
-
-@keyframes rocketFly {
-    0% { transform: translateX(0) translateY(0) rotate(-10deg); }
-    50% { transform: translateX(120vw) translateY(-40vh) rotate(20deg); }
-    100% { transform: translateX(0) translateY(0) rotate(-10deg); }
-}
-
-/* CARD */
-.card {
-    width: 100%;
-    max-width: 430px;
-    margin: auto;
-    padding: 22px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    backdrop-filter: blur(14px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-}
-
+/* Judul */
 .title {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 700;
-    background: linear-gradient(90deg,#c084fc,#60a5fa);
-    -webkit-background-clip: text;
-    color: transparent;
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 40px;
 }
 
+/* Sub */
 .subtitle {
-    text-align: center;
-    margin-bottom: 18px;
-    color: #cbd5ff;
+  margin-top: -10px;
+  color: #ddd;
+  font-size: 17px;
 }
 
-.input {
-    width: 100%;
-    padding: 14px;
-    margin-top: 10px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
+/* Card */
+.card {
+  width: 90%;
+  max-width: 400px;
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
-.label {
-    margin-top: 12px;
-    display: block;
-    font-weight: 600;
-    color: #ced9ff;
+.card input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
 }
 
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-size: 16px;
+  background: linear-gradient(90deg, #700cff, #0058f0);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Planet */
+.planet {
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #3400ad, #1e0066);
+  border-radius: 50%;
+  position: absolute;
+  top: 120px;
+  left: -50px;
+  animation: floatPlanet 8s ease-in-out infinite;
+}
+
+@keyframes floatPlanet {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Roket */
+.rocket {
+  width: 70px;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  animation: flyUp 6s linear infinite;
+}
+
+@keyframes flyUp {
+  0% { transform: translateY(0) rotate(-10deg); }
+  50% { transform: translateY(-30px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(-10deg); }
+}
+
+/* Preview */
 .preview {
-    width: 100%;
-    margin-top: 12px;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 14px;
-    overflow: hidden;
+  display: none;
+  margin-top: 10px;
 }
 
 .preview img {
-    width: 100%;
+  width: 100%;
+  border-radius: 10px;
 }
 
-.button {
-    width: 100%;
-    margin-top: 18px;
-    padding: 14px;
-    background: linear-gradient(90deg,#8b5cf6,#0ea5e9);
-    border: none;
-    border-radius: 14px;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 600;
-}
-
-.button:active {
-    transform: scale(0.96);
-}
-
-.hint {
-    text-align: center;
-    margin-top: 10px;
-    color: #bccaff;
+footer {
+  margin-top: 40px;
+  padding-bottom: 20px;
+  color: #bbb;
 }
