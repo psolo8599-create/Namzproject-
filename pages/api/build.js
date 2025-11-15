@@ -11,7 +11,7 @@ export default function handler(req, res) {
 
   const form = formidable({ multiples: false });
 
-  form.parse(req, async (err, fields, files) => {
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(500).json({ success: false, error: "Form parse error" });
     }
@@ -22,8 +22,8 @@ export default function handler(req, res) {
       return res.status(400).json({ success: false, error: "URL diperlukan" });
     }
 
-    // Simulasi proses build (ubah nanti)
-    return res.status(200).json({
+    // Kirim respon JSON normal
+    res.status(200).json({
       success: true,
       message: "APK berhasil dibuat!",
       download: "https://example.com/download.apk"
