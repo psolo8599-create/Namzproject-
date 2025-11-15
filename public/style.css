@@ -1,0 +1,118 @@
+/* ===== SPACE MOBILE THEME ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at 30% 20%, rgba(120,60,255,0.25), transparent 40%),
+              radial-gradient(circle at 70% 80%, rgba(0,200,255,0.20), transparent 50%),
+              #030414;
+  color: #eaf1ff;
+  min-height: 100vh;
+  padding: 18px;
+  overflow-x: hidden;
+}
+
+/* ✨ Animated Stars */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 110px 110px, 150px 150px;
+  background-position: 0 0, 30px 50px;
+  opacity: 0.10;
+  animation: starMove 16s linear infinite;
+}
+@keyframes starMove {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.card {
+  width: 100%;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
+
+.input,
+input[type=file] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  margin-top: 12px;
+}
+
+input::placeholder { color: #c8d4ff; }
+
+button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #8b5cf6, #0ea5e9);
+  color: white;
+  box-shadow: 0 10px 30px rgba(99,102,241,0.25);
+  transition: transform 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.preview {
+  width: 100%;
+  border-radius: 14px;
+  margin-top: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.preview img {
+  width: 100%;
+}
+
+.badge {
+  margin: 10px auto;
+  padding: 8px 16px;
+  display: block;
+  width: max-content;
+  background: linear-gradient(90deg,#7c3aed,#06b6d4);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hint {
+  color: #bcd5ff;
+  font-size: 13px;
+}
