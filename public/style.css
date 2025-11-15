@@ -1,118 +1,175 @@
-/* ===== SPACE MOBILE THEME ===== */
+/* ===== SPACE GALAXY UI ===== */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at 30% 20%, rgba(120,60,255,0.25), transparent 40%),
-              radial-gradient(circle at 70% 80%, rgba(0,200,255,0.20), transparent 50%),
-              #030414;
-  color: #eaf1ff;
-  min-height: 100vh;
-  padding: 18px;
-  overflow-x: hidden;
 }
 
-/* ✨ Animated Stars */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(white 1px, transparent 1px),
-    radial-gradient(white 1px, transparent 1px);
-  background-size: 110px 110px, 150px 150px;
-  background-position: 0 0, 30px 50px;
-  opacity: 0.10;
-  animation: starMove 16s linear infinite;
+/* Space background */
+body {
+  background: radial-gradient(circle at top, #071739 0%, #02010f 70%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: white;
+  position: relative;
 }
-@keyframes starMove {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+
+/* ✨ Stars bg */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent url("https://i.ibb.co/5v0t2Gf/stars.png") repeat;
+  animation: spaceMove 90s linear infinite;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+@keyframes spaceMove {
+  from { background-position: 0 0; }
+  to { background-position: -2500px 2500px; }
+}
+
+/* 🪐 Planet besar animasi */
+.planet {
+  position: fixed;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #6d28d9, #3b0764);
+  bottom: -80px;
+  left: -60px;
+  box-shadow: 0 0 40px rgba(123, 97, 255, 0.6);
+  animation: planetMove 18s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes planetMove {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(40px,-30px) scale(1.1); }
+}
+
+/* 🚀 Roket terbang */
+.rocket {
+  position: fixed;
+  right: 25px;
+  top: 60px;
+  font-size: 48px;
+  animation: rocketFly 3.5s ease-in-out infinite alternate;
+  z-index: 2;
+  filter: drop-shadow(0 0 12px #60a5fa);
+}
+
+@keyframes rocketFly {
+  0% { transform: translateY(0) rotate(-3deg); }
+  100% { transform: translateY(-25px) rotate(4deg); }
+}
+
+/* ===== Main UI Card ===== */
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .card {
-  width: 100%;
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  padding: 28px;
+  margin-top: 90px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 25px rgba(80,150,255,0.25);
 }
 
-.title {
-  font-size: 24px;
-  font-weight: 700;
-  text-align: center;
-  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+/* Title */
+.title-area h1 {
+  font-size: 28px;
+  margin-bottom: 6px;
+  background: linear-gradient(90deg,#7dd3fc,#c084fc);
   -webkit-background-clip: text;
   color: transparent;
-  margin-bottom: 10px;
 }
 
-.input,
-input[type=file] {
+.title-area p {
+  color: #cbd5e1;
+  margin-bottom: 22px;
+}
+
+/* Inputs */
+.input {
   width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  margin-top: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.06);
+  color: white;
 }
 
-input::placeholder { color: #c8d4ff; }
+.input::placeholder {
+  color: #9ca3af;
+}
 
+.label {
+  text-align: left;
+  font-size: 14px;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+}
+
+.fileInput {
+  width: 100%;
+  margin-bottom: 14px;
+  color: #ddd;
+}
+
+/* Image preview */
+.preview img {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid #3b82f6;
+  margin-top: 10px;
+}
+
+/* ❇ Glow Button */
 button {
   width: 100%;
-  margin-top: 18px;
   padding: 14px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 12px;
   border: none;
-  cursor: pointer;
-  background: linear-gradient(90deg, #8b5cf6, #0ea5e9);
+  background: linear-gradient(90deg,#3b82f6,#9333ea);
+  border-radius: 16px;
   color: white;
-  box-shadow: 0 10px 30px rgba(99,102,241,0.25);
-  transition: transform 0.15s ease;
-}
-
-button:active {
-  transform: scale(0.96);
-}
-
-.preview {
-  width: 100%;
-  border-radius: 14px;
-  margin-top: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-.preview img {
-  width: 100%;
-}
-
-.badge {
-  margin: 10px auto;
-  padding: 8px 16px;
-  display: block;
-  width: max-content;
-  background: linear-gradient(90deg,#7c3aed,#06b6d4);
-  color: #fff;
-  border-radius: 50px;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 0 20px rgba(147,51,234,0.5);
+  transition: 0.2s ease;
 }
 
-.hint {
-  color: #bcd5ff;
-  font-size: 13px;
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 28px rgba(59,130,246,0.7);
+}
+
+.status {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.footer {
+  margin-top: 20px;
+  color: #94a3b8;
+  font-size: 12px;
 }
